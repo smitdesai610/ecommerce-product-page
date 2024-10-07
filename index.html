@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./scss/e-commerce.css" />
+    <title>E-commerce product page</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header id="header">
+        <div class="container">
+          <div class="navbarWrapper">
+            <div class="menuIcon" id="burger">
+              <img src="./images/icon-menu.svg" alt="menu icon" />
+            </div>
+            <div class="logo">
+              <img src="./images/logo.svg" alt="main logo" />
+            </div>
+            <nav id="menu">
+              <div class="closebtn" id="close-menu">
+                <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                    fill="#69707D"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <ul>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+            <nav id="menuVertical">
+              <ul>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="profileWrapper">
+            <div class="cartIcon">
+              <img src="./images/icon-cart.svg" alt="cart icon" />
+              <span id="cartCount" class="cart-count">1</span>
+            </div>
+            <div id="cartPopup" class="cart-popup">
+              <div class="cart-popup-content">
+                <h3>Cart</h3>
+                <div id="cartItems" class="cart-item"></div>
+                <p id="emptyCartMessage">Your cart is empty.</p>
+                <button id="checkoutButton" style="display: none;">Checkout</button>
+              </div>
+            </div>
+            <div class="profilePhoto">
+              <img src="./images/image-avatar.png" alt="profile photo" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <div class="productWrapper">
+            <div class="productImage">
+              <img src="./images/image-product-1.jpg" alt="product image" />
+            </div>
+            <div class="multipleAngle">
+              <div class="multipleAngleImg" onclick="openModal(0)">
+                <img src="./images/image-product-1.jpg" alt="product image" />
+              </div>
+              <div class="multipleAngleImg" onclick="openModal(1)">
+                <img src="./images/image-product-2.jpg" alt="product image" />
+              </div>
+              <div class="multipleAngleImg" onclick="openModal(2)">
+                <img src="./images/image-product-3.jpg" alt="product image" />
+              </div>
+              <div class="multipleAngleImg" onclick="openModal(3)">
+                <img src="./images/image-product-4.jpg" alt="product image" />
+              </div>
+            </div>
+            <div id="productModal" class="productWrapper hidden">
+              <div class="modalContent">
+                <div class="modalImage">
+                  <span class="close" onclick="closeModal()">&times;</span>
+                  <button class="prev" onclick="changeImage(-1)">
+                    <img src="./images/icon-previous.svg" alt="prev icon" />
+                  </button>
+                  <img id="modalImage" class="productImage" src="./images/image-product-1-thumbnail.jpg" alt="Product Image"/>
+                  <button class="next" onclick="changeImage(1)">
+                    <img src="./images/icon-next.svg" alt="next icon" />
+                  </button>
+                </div>
+                <div class="thumbnails">
+                  <img src="./images/image-product-1.jpg" alt="Thumbnail 1" onclick="setImage(0)">
+                  <img src="./images/image-product-2.jpg" alt="Thumbnail 2" onclick="setImage(1)">
+                  <img src="./images/image-product-3.jpg" alt="Thumbnail 3" onclick="setImage(2)">
+                  <img src="./images/image-product-4.jpg" alt="Thumbnail 4" onclick="setImage(3)">
+                </div>
+              </div>
+            </div>  
+          </div>
+          <div class="productInfo">
+            <div class="companyName">Sneaker Company</div>
+            <div class="productTitle">Fall Limited Edition Sneakers</div>
+            <div class="productDescription">
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they’ll withstand
+              everything the weather can offer.
+            </div>
+            <div class="priceWrapper">
+              <div class="newPriceWrapper">
+                <div class="newPrice">$125.00</div>
+                <div class="discount">50%</div>
+              </div>
+              <div class="oldPrice">$250.00</div>
+            </div>
+            <div class="cartWrapper">
+              <div class="quantity-control">
+                <button class="minusIcon">
+                  <svg
+                    width="12"
+                    height="4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs>
+                      <path
+                        d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+                        id="a"
+                      />
+                    </defs>
+                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
+                  </svg>
+                </button>
+                <span id="orderCount"></span>
+                <button class="plusIcon">
+                  <svg
+                    width="12"
+                    height="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs>
+                      <path
+                        d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+                        id="b"
+                      />
+                    </defs>
+                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b" />
+                  </svg>
+                </button>
+              </div>
+              <button class="addToCart">
+                <div class="cartIcon">
+                  <svg
+                    width="22"
+                    height="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                      fill="#69707D"
+                      fill-rule="nonzero"
+                    />
+                  </svg>
+                </div>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Smit Desai</a>.
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
